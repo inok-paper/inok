@@ -34,6 +34,10 @@ const { width, pdfUrl } = Astro.props;
                     url: pdfUrl,
                     disableAutoFetch: true,
                     disableStream: false,
+                    httpHeaders: {
+                        "Accept-Encoding": "identity",
+                    },
+                    rangeChunkSize: 65536,
                 });
                 const pdfDoc = await loadingTask.promise;
                 const page = await pdfDoc.getPage(1);

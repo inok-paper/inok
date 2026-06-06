@@ -246,6 +246,7 @@ const { pdfUrl } = Astro.props;
                     httpHeaders: {
                         "Accept-Encoding": "identity",
                     },
+                    rangeChunkSize: 65536,
                 });
                 this.pdfDoc = await loadingTask.promise;
                 this.totalPages = this.pdfDoc.numPages;
